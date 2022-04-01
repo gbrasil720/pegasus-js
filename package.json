@@ -1,0 +1,21 @@
+{
+  "name": "helper-js",
+  "version": "1.0.0",
+  "main": "./dist/index.js",
+  "license": "MIT",
+  "type": "module",
+  "scripts": {
+    "test:dev": "ts-node-dev src/tests/manual/index.ts"
+  },
+  "devDependencies": {
+    "@types/chalk": "^2.2.0",
+    "@types/node": "^17.0.22",
+    "chalk": "5.0.0",
+    "ts-node-dev": "^1.1.8",
+    "typescript": "^4.6.2"
+  },
+  "dependencies": {
+    "log-symbols": "^5.1.0",
+    "module-alias": "^2.2.2"
+  }
+}
