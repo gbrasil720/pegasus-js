@@ -1,22 +1,23 @@
 import * as S from '../../index'
 
-const myLogProvider = new S.LogProvider({
-  filePath: './test.log',
-})
+const logger = new S.Logger()
 
-function writeFile() {
-  myLogProvider.write({
-    logs: [
-      {
-        logKey: 'log 1',
-        logValue: 'log 1',
-      },
-      {
-        logKey: 'log 2',
-        logValue: 'log 2',
-      },
-    ],
+function test() {
+  logger.error({
+    message: 'ERRO',
+  })
+
+  logger.warn({
+    message: 'WARN',
+  })
+
+  logger.success({
+    message: 'SUCCESS',
+  })
+
+  logger.info({
+    message: 'INFO',
   })
 }
 
-writeFile()
+test()

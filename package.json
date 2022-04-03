@@ -3,7 +3,6 @@
   "version": "1.0.0",
   "main": "./dist/index.js",
   "license": "MIT",
-  "type": "module",
   "scripts": {
     "test:dev": "ts-node-dev src/tests/manual/index.ts"
   },
