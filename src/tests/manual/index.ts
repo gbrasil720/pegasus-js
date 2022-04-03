@@ -1,7 +1,7 @@
 import * as S from '../../index'
 
 const myLogProvider = new S.LogProvider({
-  filePath: './test.json',
+  filePath: './test.log',
 })
 
 function writeFile() {
