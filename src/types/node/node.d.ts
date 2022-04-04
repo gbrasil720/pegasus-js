@@ -8,7 +8,7 @@ export namespace NodeLib {
     logValue: string
   }
 
-  export interface WriteProps {
-    logs: Log[]
+  export interface LogWriteProps {
+    logs: NodeLib.Log[]
   }
 }

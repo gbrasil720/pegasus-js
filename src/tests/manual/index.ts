@@ -1,23 +1,22 @@
 import * as S from '../../index'
 
-const logger = new S.Logger()
+const logger = new S.LogProvider({
+  filePath: 'src/tests/manual/logs.json',
+})
 
-function test() {
-  logger.error({
-    message: 'ERRO',
-  })
+logger.write({
+  logs: [
+    {
+      logKey: 'logKey4',
+      logValue: 'logValue4',
+    },
+  ],
+})
 
-  logger.warn({
-    message: 'WARN',
-  })
+const data = logger.getAllLogs('src/tests/manual/logs.json')
 
-  logger.success({
-    message: 'SUCCESS',
-  })
+const allLogsKey = data.logs.map((x: any) => {
+  console.log(x.logKey)
+})
 
-  logger.info({
-    message: 'INFO',
-  })
-}
-
-test()
+console.log(allLogsKey)

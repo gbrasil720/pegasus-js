@@ -1,0 +1,20 @@
+{
+  "logs": [
+    {
+      "logKey": "logKey1",
+      "logValue": "logValue1"
+    },
+    {
+      "logKey": "logKey2",
+      "logValue": "logValue2"
+    },
+    {
+      "logKey": "logKey3",
+      "logValue": "logValue3"
+    },
+    {
+      "logKey": "logKey4",
+      "logValue": "logValue4"
+    }
+  ]
+}

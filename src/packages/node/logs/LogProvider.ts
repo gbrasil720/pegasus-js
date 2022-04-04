@@ -1,5 +1,4 @@
 import fs from 'fs'
-import path from 'path'
 
 import { Utils } from '../../../utils/'
 
@@ -13,15 +12,34 @@ export default class LogProvider {
     this.file = props.filePath
   }
 
-  public write(props: NodeLib.WriteProps) {
+  write(props: NodeLib.LogWriteProps) {
     Utils.verifyFileExtension(this.file)
 
-    const fileProps = JSON.stringify(props, null, 2)
+    try {
+      const logs = fs.readFileSync(this.file, 'utf8')
+
+      const data = JSON.parse(logs)
+
+      data.logs = [...data.logs, ...props.logs]
+
+      fs.writeFileSync(this.file, JSON.stringify(data, null, 2))
+    } catch (err) {
+      const data = {
+        logs: props.logs,
+      }
+
+      fs.writeFileSync(this.file, JSON.stringify(data, null, 2))
+    }
+  }
+
+  getAllLogs(filePath: string) {
+    Utils.verifyFileExtension(filePath)
 
     try {
-      fs.writeFileSync(path.join(this.file), fileProps)
+      const logs = fs.readFileSync(filePath, 'utf8')
+      return JSON.parse(logs)
     } catch (err) {
-      throw new InternalError('Error trying to write a log')
+      throw new InternalError('Error trying to read a log')
     }
   }
 }
