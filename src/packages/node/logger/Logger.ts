@@ -15,6 +15,10 @@ export default class Logger {
     } else {
       console.log(message)
     }
+
+    return {
+      type: 'info',
+    }
   }
 
   success({ message, colored = true }: MethodProps) {
@@ -25,6 +29,10 @@ export default class Logger {
       })
     } else {
       console.log(message)
+    }
+
+    return {
+      type: 'success',
     }
   }
 
@@ -37,6 +45,10 @@ export default class Logger {
     } else {
       console.log(message)
     }
+
+    return {
+      type: 'warning',
+    }
   }
 
   error({ message, colored = true }: MethodProps) {
@@ -47,6 +59,25 @@ export default class Logger {
       })
     } else {
       console.log(message)
+    }
+
+    return {
+      type: 'error',
+    }
+  }
+
+  debug({ message, colored = true }: MethodProps) {
+    if (colored) {
+      Utils.colorizeString({
+        message,
+        symbol: 'debug',
+      })
+    } else {
+      console.log(message)
+    }
+
+    return {
+      type: 'debug',
     }
   }
 }

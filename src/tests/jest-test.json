@@ -1,0 +1,8 @@
+{
+  "logs": [
+    {
+      "logKey": "test log",
+      "logValue": "test value"
+    }
+  ]
+}

@@ -1,4 +1,4 @@
-import fs from 'fs'
+import fs from 'node:fs'
 
 import { Utils } from '../../../utils/'
 
@@ -6,10 +6,10 @@ import { NodeLib } from '../../../types/node/node'
 import { InternalError } from '../../../errors/InternalError'
 
 export default class LogProvider {
-  private file: string
+  public file: string
 
-  constructor(props: NodeLib.LogConstructorProps) {
-    this.file = props.filePath
+  constructor({ filePath }: NodeLib.LogConstructorProps) {
+    this.file = filePath
   }
 
   write(props: NodeLib.LogWriteProps) {
