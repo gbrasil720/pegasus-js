@@ -4,49 +4,56 @@ describe('Should test all log methods', () => {
   const logger = new Logger()
   const logProvider = new LogProvider({ filePath: 'src/tests/jest-test.json' })
 
-  it('Should test info method', () => {
-    const spy = jest.spyOn(logger, 'info')
+  const loggerSpy = jest.spyOn(logger, 'use')
 
-    const iLogger = logger.info({ message: 'info' })
+  it('Should test info method', () => {
+    const iLogger = logger.use({
+      type: 'info',
+      message: 'This is a info message',
+    })
 
     expect(iLogger.type).toBe('info')
-    expect(spy).toHaveBeenCalled()
+    expect(loggerSpy).toHaveBeenCalled()
   })
 
   it('Should test success method', () => {
-    const spy = jest.spyOn(logger, 'success')
-
-    const sLogger = logger.success({ message: 'success' })
+    const sLogger = logger.use({
+      type: 'success',
+      message: 'This is a success message',
+    })
 
     expect(sLogger.type).toBe('success')
-    expect(spy).toHaveBeenCalled()
+    expect(loggerSpy).toHaveBeenCalled()
   })
 
   it('Should test warn method', () => {
-    const spy = jest.spyOn(logger, 'warn')
-
-    const wLogger = logger.warn({ message: 'warning' })
+    const wLogger = logger.use({
+      type: 'warning',
+      message: 'This is a warning message',
+    })
 
     expect(wLogger.type).toBe('warning')
-    expect(spy).toHaveBeenCalled()
+    expect(loggerSpy).toHaveBeenCalled()
   })
 
   it('Should test error method', () => {
-    const spy = jest.spyOn(logger, 'error')
-
-    const eLogger = logger.error({ message: 'error' })
+    const eLogger = logger.use({
+      type: 'error',
+      message: 'This is a error message',
+    })
 
     expect(eLogger.type).toBe('error')
-    expect(spy).toHaveBeenCalled()
+    expect(loggerSpy).toHaveBeenCalled()
   })
 
   it('Should test debug method', () => {
-    const spy = jest.spyOn(logger, 'debug')
-
-    const dLogger = logger.debug({ message: 'debug' })
+    const dLogger = logger.use({
+      type: 'debug',
+      message: 'This is a debug message',
+    })
 
     expect(dLogger.type).toBe('debug')
-    expect(spy).toHaveBeenCalled()
+    expect(loggerSpy).toHaveBeenCalled()
   })
 
   it('Should write in file using logProvider', () => {
@@ -57,7 +64,7 @@ describe('Should test all log methods', () => {
         logs: [
           {
             logKey: 'test log',
-            logValue: 'test value'
+            logValue: 'test value',
           },
         ],
       })
