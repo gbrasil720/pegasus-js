@@ -1,6 +1,6 @@
 import { Utils } from '../../../utils'
 
-export class Generators extends Utils {
+export default class Generators extends Utils {
   public generateRandomCharacter(length: number): string {
     const response = this.charsGenerator({
       type: 'all-chars',
