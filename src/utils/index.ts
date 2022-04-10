@@ -1,25 +1,11 @@
 import chalk from 'chalk'
-import logSymbols from 'log-symbols'
 
+import { NodeLib } from '../types/node/node'
+import { ICONS } from './icons'
 import { InternalError } from '../errors/InternalError'
 
-interface ColorizeString {
-  message: string
-  symbol: 'info' | 'success' | 'warning' | 'error' | 'debug'
-}
-
-const isWindows = process.platform === 'win32'
-
-const ICONS = {
-  failed: isWindows ? '\u00D7' : '\u2715',
-  info: '\u24D8',
-  success: isWindows ? '\u221A' : '\u2713',
-  warning: '\u26A0',
-  debug: '\u22c7',
-}
-
 export class Utils {
-  static colorizeString({ symbol, message }: ColorizeString) {
+  protected colorizeString({ symbol, message }: NodeLib.Utils.ColorizeString) {
     let response
 
     switch (symbol) {
@@ -48,12 +34,55 @@ export class Utils {
     console.log(response)
   }
 
-  static verifyFileExtension(dir: string) {
+  protected verifyFileExtension(dir: string) {
     const $dir = dir.split('/')[dir.split('/').length - 1]
     const language = $dir.split('.')[1]
 
     if (language !== 'json') {
       throw new InternalError('Not a json file')
     }
+  }
+
+  protected validateColor(props: NodeLib.Utils.ValidateColor): boolean {
+    let re
+
+    switch (props.colorType) {
+      case 'hex':
+        re = /^#[0-9A-F]{6}$/i
+        break
+      case 'rgb':
+        re = /^rgb\((\d{1,3}),\s?(\d{1,3}),\s?(\d{1,3})\)$/
+        break
+      case 'rgba':
+        re = /^rgba\((\d{1,3}),\s?(\d{1,3}),\s?(\d{1,3}),\s?(\d{1,3})\)$/
+        break
+      case 'hsl':
+        re = /^hsl\((\d{1,3}),\s?(\d{1,3}),\s?(\d{1,3})\)$/
+        break
+      case 'hsla':
+        re = /^hsla\((\d{1,3}),\s?(\d{1,3}),\s?(\d{1,3}),\s?(\d{1,3})\)$/
+        break
+    }
+
+    return re.test(String(props.color).toLocaleLowerCase())
+  }
+
+  protected charsGenerator(props: NodeLib.Utils.CharsGenerator) {
+    let chars = ''
+    let result = ''
+
+    if (props.type === 'all-chars')
+      chars = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789'
+    if (props.type === 'only-numbers') chars = '0123456789'
+    if (props.type === 'only-letters')
+      chars = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz'
+
+    const charactersLenght = chars.length
+
+    for (let i = 0; i < length; i++) {
+      result += chars.charAt(Math.floor(Math.random() * charactersLenght))
+    }
+
+    return result
   }
 }

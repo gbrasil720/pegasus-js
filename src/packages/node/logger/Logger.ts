@@ -6,10 +6,10 @@ interface MethodProps {
   colored?: boolean
 }
 
-export default class Logger {
+export default class Logger extends Utils {
   use({ type, message, colored = true }: MethodProps) {
     if (colored) {
-      Utils.colorizeString({
+      this.colorizeString({
         message,
         symbol: type,
       })
