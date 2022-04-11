@@ -6,9 +6,9 @@ const configuration: Configuration = {
     format: ['es', 'esm', 'cjs', 'commonjs', 'umd', 'umd-min'],
     moduleName: 'pegasus-js',
     fileName: ({ format }, defaultFileName) => {
-      if (format === 'es') return 'pegasus-js.mjs'
-      if (format === 'cjs') return 'pegasus-js.cjs'
-      if (format === 'commonjs') return 'pegasus-js.js'
+      if (format === 'es') return 'index.mjs'
+      if (format === 'cjs') return 'index.cjs'
+      if (format === 'commonjs') return 'index.js'
 
       return defaultFileName
     },
