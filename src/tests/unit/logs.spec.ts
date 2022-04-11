@@ -1,4 +1,4 @@
-import { Logger, LogProvider } from '../index'
+import { Logger, LogProvider } from '../../index'
 
 describe('Should test all log methods', () => {
   const logger = new Logger()

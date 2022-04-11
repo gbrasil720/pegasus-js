@@ -57,10 +57,11 @@ export class Utils {
         re = /^rgba\((\d{1,3}),\s?(\d{1,3}),\s?(\d{1,3}),\s?(\d{1,3})\)$/
         break
       case 'hsl':
-        re = /^hsl\((\d{1,3}),\s?(\d{1,3}),\s?(\d{1,3})\)$/
+        re = /hsl\(\s*(\d+)\s*,\s*(\d+(?:\.\d+)?%)\s*,\s*(\d+(?:\.\d+)?%)\)/g
         break
       case 'hsla':
-        re = /^hsla\((\d{1,3}),\s?(\d{1,3}),\s?(\d{1,3}),\s?(\d{1,3})\)$/
+        re =
+          /[Hh][Ss][Ll][Aa][\(](((([\d]{1,3}|[\d\%]{2,4}|[\d\.]{1,3})[\,]{0,1})[\s]*){4})[\)]/gm
         break
     }
 
@@ -77,10 +78,10 @@ export class Utils {
     if (props.type === 'only-letters')
       chars = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz'
 
-    const charactersLenght = chars.length
+    const charactersLength = chars.length
 
-    for (let i = 0; i < length; i++) {
-      result += chars.charAt(Math.floor(Math.random() * charactersLenght))
+    for (let i = 0; i < props.length; i++) {
+      result += chars.charAt(Math.floor(Math.random() * charactersLength))
     }
 
     return result
