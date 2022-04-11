@@ -39,6 +39,14 @@ Using npm:
 npm install pegasus-js
 ```
 
+## ⚠️ ATTENTION
+
+> Before using pegasus-js, you need to install <bold>tslib</bold>:
+
+```sh
+yarn add -D tslib
+```
+
 ## ☕ Using pegasus-js
 
 To use pegasus-js functions, just follow this steps:
