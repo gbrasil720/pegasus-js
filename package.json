@@ -1,6 +1,6 @@
 {
   "name": "pegasus-js",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "main": "./dist/index.js",
   "license": "MIT",
   "scripts": {
@@ -21,6 +21,6 @@
     "typescript": "^4.6.2"
   },
   "dependencies": {},
-  "repository": "https://github.com/gbrasil720/helper-js.git",
+  "repository": "https://github.com/gbrasil720/pegasus-js.git",
   "author": "GUILHERME BRASIL <dev.guilhermebrasil@gmail.com>"
 }
