@@ -39,6 +39,12 @@ Using npm:
 npm install pegasus-js
 ```
 
+## ⚡ Possible imports
+- [x] Generators
+- [x] Validators
+- [x] Logger
+- [x] LogProvider
+
 ## ⚠️ ATTENTION
 
 > Before using pegasus-js, you need to install <bold>tslib</bold>:
