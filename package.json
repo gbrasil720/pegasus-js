@@ -1,7 +1,7 @@
 {
   "name": "pegasus-js",
   "description": "pegasus-js is a simple node.js package that promise help in your daily coding experience, provides you some \"plug-in-play\" functions, that you can just import and use everywhere",
-  "version": "1.0.7",
+  "version": "1.0.8",
   "main": "./dist/index.js",
   "cdn": "./dist/index.umd.min.js",
   "types": "./types/index.d.ts",
