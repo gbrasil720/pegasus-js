@@ -45,6 +45,14 @@ npm install pegasus-js
 - [x] Logger
 - [x] LogProvider
 
+```ts
+import { Validators } from 'pegasus-js'
+
+const validator = new Validators()
+
+validator.isDate('dawdawda') // false
+```
+
 ## ⚠️ ATTENTION
 
 > Before using pegasus-js, you need to install <bold>tslib</bold>:
