@@ -10,7 +10,6 @@
 
 - [Documentation](https://gbrasil3g.gitbook.io/pegasus-js/)
 - [NPM Package](https://www.npmjs.com/package/pegasus-js)
-- [Yarn Package](https://yarnpkg.com/package/pegasus-js)
 
 ### Adjustments and improvements
 
