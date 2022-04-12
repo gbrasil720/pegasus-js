@@ -8,6 +8,10 @@
 
 > pegasus-js is a simple node.js package that promise help in your daily coding experience, provides you some "plug-in-play" functions, that you can just import and use everywhere
 
+- [Documentation](https://gbrasil3g.gitbook.io/pegasus-js/)
+- [NPM Package](https://www.npmjs.com/package/pegasus-js)
+- [Yarn Package](https://yarnpkg.com/package/pegasus-js)
+
 ### Adjustments and improvements
 
 The project still in development and the next updates will be focused in:
@@ -37,20 +41,6 @@ Using npm:
 
 ```
 npm install pegasus-js
-```
-
-## ⚡ Possible imports
-- [x] Generators
-- [x] Validators
-- [x] Logger
-- [x] LogProvider
-
-```ts
-import { Validators } from 'pegasus-js'
-
-const validator = new Validators()
-
-validator.isDate('dawdawda') // false
 ```
 
 ## ⚠️ ATTENTION
